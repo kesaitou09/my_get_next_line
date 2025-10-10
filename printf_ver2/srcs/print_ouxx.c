@@ -115,12 +115,12 @@ int print_hash(t_info *inf, size_t hash)
 {
 	if (hash)
 	{
-		if (inf ->specifier == 'x')
+		if (inf ->specifier == 'x' || inf ->specifier == 'p')
 		{
 			if (ft_putstr("0x", inf) == ERROR)
 			return ERROR;
 		}
-		else if (inf ->specifier == 'X')
+		if (inf ->specifier == 'X')
 		{
 			if (ft_putstr("0X", inf) == ERROR)
 				return ERROR;

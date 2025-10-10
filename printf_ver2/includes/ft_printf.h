@@ -36,13 +36,17 @@ int print_hub(va_list *args, t_info *inf);
 int u_print_process(char *num_arr, t_info *inf, size_t hash, size_t zero);
 int s_print_process(char *num_arr, t_info *inf, size_t zero, int is_minus);
 int print_hash(t_info *inf, size_t hash);
-int print_s(va_list *args, t_info *inf);
+size_t count_len_ptr(uintptr_t num, size_t base_len);
+int p_print_process(char *num_arr, t_info *inf, size_t hash, size_t zero);
+char *ft_uptoa_base(uintptr_t num, char *base);
 int print_cper(va_list *args, t_info *inf);
+int print_s(va_list *args, t_info *inf);
 int print_di(t_info *inf, va_list *args);
 int print_o(t_info *inf, va_list *args);
 int print_u(t_info *inf, va_list *args);
 int print_x(t_info *inf, va_list *args);
 int print_X(t_info *inf, va_list *args);
+int print_p(va_list *args, t_info *inf, char *base);
 
 void init_info(t_info *inf);
 int parse(char **format, t_info *inf, va_list *args);
