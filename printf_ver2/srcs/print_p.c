@@ -15,8 +15,8 @@ int print_p(va_list *args, t_info *inf, char *base)
 	else if ((int)ft_strlen(num_arr) < inf->precision)
 		prec_zero = inf->precision - (int)ft_strlen(num_arr);
 	if (p_print_process(num_arr, inf, 2, prec_zero) == ERROR)
-		return (ERROR);
-	return (SUCCESS);
+		return (free(num_arr), ERROR);
+	return (free(num_arr), SUCCESS);
 }
 
 char *ft_uptoa_base(uintptr_t num, char *base)

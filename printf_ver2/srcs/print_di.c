@@ -39,9 +39,9 @@ int s_print_process(char *num_arr, t_info *inf, size_t zero, int is_minus)
 	if (inf->flags & F_PLUS || is_minus)
 		sign = 1;
 	calc_pad(&pad, inf, num_len + zero + sign + space);
-	if (right_align(inf, pad) == ERROR)
-		return (ERROR);
 	if (put_space_sign(inf, sign, is_minus, space) == ERROR)
+		return (ERROR);
+	if (right_align(inf, pad) == ERROR)
 		return (ERROR);
 	if (put_nzero(inf, zero) == ERROR)
 		return (ERROR);
@@ -97,12 +97,6 @@ int right_align(t_info *inf, size_t pad)
 }
 int put_space_sign(t_info *inf, size_t sign, int is_minus, size_t space)
 {
-	if (space)
-	{
-		if (ft_putchar(' ', inf) == ERROR)
-			return (ERROR);
-		return (SUCCESS);
-	}
 	if (sign)
 	{
 		if (inf->flags & F_PLUS && !is_minus)
@@ -115,6 +109,11 @@ int put_space_sign(t_info *inf, size_t sign, int is_minus, size_t space)
 			if (ft_putchar('-', inf) == ERROR)
 				return (ERROR);
 		}
+	}
+	if (space && !is_minus)
+	{
+		if (ft_putchar(' ', inf) == ERROR)
+			return (ERROR);
 	}
 	return (SUCCESS);
 }
