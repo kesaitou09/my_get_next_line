@@ -31,22 +31,40 @@ typedef enum e_flag
 	F_HASH = 1 << 4,
 } t_flag;
 
-int parse_hub(char **format, t_info *inf);
+int ft_printf(const char *format, ...);
 int print_hub(va_list *args, t_info *inf);
+int print_process(char *num_arr, t_info *inf, size_t hash, size_t zero);
+int print_hash(t_info *inf, size_t hash);
 int print_s(va_list *args, t_info *inf);
 int print_cper(va_list *args, t_info *inf);
+int print_o(t_info *inf, va_list *args);
+int print_u(t_info *inf, va_list *args);
+int print_x(t_info *inf, va_list *args);
+int print_X(t_info *inf, va_list *args);
 
-int put_nstr(const char *str, size_t n, t_info *inf);
+void init_info(t_info *inf);
+int parse(char **format, t_info *inf, va_list *args);
+int parse_hub(char **format, t_info *inf, va_list *args);
+void parse_specifi(char **format, t_info *inf);
+void parse_length(char **format, t_info *inf);
+void parse_precision(char **format, t_info *inf);
+void parse_width(char **format, t_info *inf);
+
+char *sitoa_hub(t_info *inf, va_list *args, const char *base);
+char *ft_utoa_base(unsigned long long num, const char *base);
+char *utoa_hub(t_info *inf, va_list *args, const char *base);
+size_t count_len(unsigned long long num, size_t base_len);
 void calc_maxlen(size_t *max_len, t_info *inf, const char *str);
 void calc_pad(size_t *pad, t_info *inf, size_t max_len);
 
-int put_nspace(int n, t_info *inf);
+int put_nstr(const char *str, size_t n, t_info *inf);
+int put_nzero(t_info *inf, size_t n);
+int put_nspace(t_info *inf, size_t n);
+
 int ft_putchar(char c, t_info *inf);
 int ft_putstr(char *str, t_info *inf);
-int	put_nzero(t_info *inf, size_t n);
 int is_flag(char c);
 int ft_atoi_alpha(const char **nptr);
-int	ft_strcmp(const char *s1, const char *s2);
-
+int ft_strcmp(const char *s1, const char *s2);
 
 #endif

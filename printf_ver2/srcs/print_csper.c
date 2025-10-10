@@ -16,12 +16,12 @@ int print_cper(va_list *args, t_info *inf)
 	{
 		if (ft_putchar(c, inf) == ERROR)
 			return (ERROR);
-		if (put_nspace(pad, inf) == ERROR)
+		if (put_nspace(inf, pad) == ERROR)
 			return (ERROR);
 	}
 	else
 	{
-		if (put_nspace(pad, inf) == ERROR)
+		if (put_nspace(inf, pad) == ERROR)
 			return (ERROR);
 		if (ft_putchar(c, inf) == ERROR)
 			return (ERROR);
@@ -42,14 +42,14 @@ int print_s(va_list *args, t_info *inf)
 	calc_pad(&pad, inf ,max_len);
 	if (!(inf->flags & F_MINUS))
 	{
-		if (put_nspace(pad, inf) == ERROR)
+		if (put_nspace(inf, pad) == ERROR)
 			return (ERROR);
 	}
 	if (put_nstr(str, max_len, inf) == ERROR)
 		return (ERROR);
 	if (inf->flags & F_MINUS)
 	{
-		if (put_nspace(pad, inf) == ERROR)
+		if (put_nspace(inf, pad) == ERROR)
 			return (ERROR);
 	}
 	return (SUCCESS);
