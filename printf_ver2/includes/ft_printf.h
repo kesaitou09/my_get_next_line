@@ -33,10 +33,12 @@ typedef enum e_flag
 
 int ft_printf(const char *format, ...);
 int print_hub(va_list *args, t_info *inf);
-int print_process(char *num_arr, t_info *inf, size_t hash, size_t zero);
+int u_print_process(char *num_arr, t_info *inf, size_t hash, size_t zero);
+int s_print_process(char *num_arr, t_info *inf, size_t zero, int is_minus);
 int print_hash(t_info *inf, size_t hash);
 int print_s(va_list *args, t_info *inf);
 int print_cper(va_list *args, t_info *inf);
+int print_di(t_info *inf, va_list *args);
 int print_o(t_info *inf, va_list *args);
 int print_u(t_info *inf, va_list *args);
 int print_x(t_info *inf, va_list *args);
@@ -50,7 +52,7 @@ void parse_length(char **format, t_info *inf);
 void parse_precision(char **format, t_info *inf);
 void parse_width(char **format, t_info *inf);
 
-char *sitoa_hub(t_info *inf, va_list *args, const char *base);
+char *stoa_hub(t_info *inf, va_list *args, const char *base, int *is_minus);
 char *ft_utoa_base(unsigned long long num, const char *base);
 char *utoa_hub(t_info *inf, va_list *args, const char *base);
 size_t count_len(unsigned long long num, size_t base_len);
@@ -61,6 +63,8 @@ int put_nstr(const char *str, size_t n, t_info *inf);
 int put_nzero(t_info *inf, size_t n);
 int put_nspace(t_info *inf, size_t n);
 
+int put_space_sign(t_info *inf, size_t sign, int is_minus, size_t space);
+int right_align(t_info *inf, size_t pad);
 int ft_putchar(char c, t_info *inf);
 int ft_putstr(char *str, t_info *inf);
 int is_flag(char c);

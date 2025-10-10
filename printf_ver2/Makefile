@@ -67,6 +67,7 @@ SRCS =  srcs/ft_printf.c \
         srcs/parse.c \
         srcs/print_csper.c \
         srcs/print_ouxx.c \
+		srcs/print_di.c\
         srcs/print.c \
         srcs/utils.c
 OBJS = $(SRCS:.c=.o)

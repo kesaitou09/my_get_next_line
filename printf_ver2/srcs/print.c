@@ -9,6 +9,8 @@ int		print_hub(va_list *args,t_info *inf)
 		return (print_cper(args, inf));
 	else if(inf ->specifier == 's')
 		return (print_s(args, inf));
+	else if (inf ->specifier == 'd' || inf ->specifier == 'i')
+		return (print_di(inf, args));
 	else if (inf ->specifier == 'o')
 		return (print_o(inf, args));
 	else if (inf ->specifier == 'u')
@@ -17,10 +19,9 @@ int		print_hub(va_list *args,t_info *inf)
 		return (print_x(inf, args));
 	else if (inf ->specifier == 'X')
 		return (print_X(inf, args));
+	
 	//else if (inf ->specifier == 'p')
 	//	return (print_p());
-	//else if (inf ->specifier == 'd' || inf ->specifier == 'i')
-	//	return (print_di());
 	
 	return (SUCCESS);
 }

@@ -18,7 +18,7 @@ int print_o(t_info *inf, va_list *args)
 		hash_zero = 1;
 	if ((int)ft_strlen(num_arr) < inf->precision)
 		prec_zero = inf->precision - ft_strlen(num_arr);
-	if (print_process(num_arr, inf, hash_zero, prec_zero) == ERROR)
+	if (u_print_process(num_arr, inf, hash_zero, prec_zero) == ERROR)
 		return (free(num_arr), ERROR);
 	return (free(num_arr), SUCCESS);
 }
@@ -35,7 +35,7 @@ int print_u(t_info *inf, va_list *args)
 		num_arr[0] = '\0';
 	if ((int)ft_strlen(num_arr) < inf->precision)
 		prec_zero = inf->precision - ft_strlen(num_arr);
-	if (print_process(num_arr, inf, 0, prec_zero) == ERROR)
+	if (u_print_process(num_arr, inf, 0, prec_zero) == ERROR)
 		return (free(num_arr), ERROR);
 	return (free(num_arr), SUCCESS);
 }
@@ -56,7 +56,7 @@ int print_x(t_info *inf, va_list *args)
 		prec_zero = inf->precision - (int)ft_strlen(num_arr);
 	if ((inf->flags & F_HASH) && num_arr[0] != '0' && num_arr[0] != '\0')
 		hash_len = 2;
-	if (print_process(num_arr, inf, hash_len, prec_zero) == ERROR)
+	if (u_print_process(num_arr, inf, hash_len, prec_zero) == ERROR)
 		return (free(num_arr), ERROR);
 	return (free(num_arr), SUCCESS);
 }
@@ -78,7 +78,7 @@ int print_X(t_info *inf, va_list *args)
 		prec_zero = inf->precision - (int)ft_strlen(num_arr);
 	if ((inf->flags & F_HASH) && num_arr[0] != '0' && num_arr[0] != '\0')
 		hash_len = 2;
-	if (print_process(num_arr, inf, hash_len, prec_zero) == ERROR)
+	if (u_print_process(num_arr, inf, hash_len, prec_zero) == ERROR)
 		return (free(num_arr), ERROR);
 	return (free(num_arr), SUCCESS);
 }

@@ -20,34 +20,7 @@ char *utoa_hub(t_info *inf, va_list *args, const char *base)
 	return (ft_utoa_base(num, base));
 }
 
-char *sitoa_hub(t_info *inf, va_list *args, const char *base, int *is_minus)
-{
-	long long num;
 
-	if (ft_strcmp(inf->length, "l") == 0)
-		num = va_arg(*args, long);
-	else if (ft_strcmp(inf->length, "ll") == 0)
-		num = va_arg(*args, long long);
-	else
-	{
-		num = va_arg(*args, int);
-		if (num < 0)
-		{
-			num = -num;
-			*is_minus = 1;
-		}
-		if (ft_strcmp(inf->length, "h") == 0)
-			return (ft_utoa_base((signed short)num, base));
-		else if (ft_strcmp(inf->length, "hh") == 0)
-			return (ft_utoa_base((signed char)num, base));
-	}
-	if (num < 0)
-	{
-		num = -num;
-		*is_minus = 1;
-	}
-	return (ft_utoa_base(num, base));
-}
 
 char *ft_utoa_base(unsigned long long num, const char *base)
 {
