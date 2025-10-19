@@ -6,7 +6,7 @@
 /*   By: kesaitou <kesaitou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 11:35:18 by kesaitou          #+#    #+#             */
-/*   Updated: 2025/10/19 11:35:20 by kesaitou         ###   ########.fr       */
+/*   Updated: 2025/10/19 19:06:12 by kesaitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 # define GET_NEXT_LINE_BONUS_H
 
 # include <fcntl.h>
-# include <limits.h>
 # include <stdint.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+# define OPEN_MAX 65534
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1000

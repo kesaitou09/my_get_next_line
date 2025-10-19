@@ -6,7 +6,7 @@
 /*   By: kesaitou <kesaitou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 11:35:22 by kesaitou          #+#    #+#             */
-/*   Updated: 2025/10/19 15:33:38 by kesaitou         ###   ########.fr       */
+/*   Updated: 2025/10/19 19:50:59 by kesaitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,7 @@ char	*get_line(char **va_buf)
 	if (*va_buf == NULL || **va_buf == '\0')
 	{
 		if (*va_buf)
-		{
-			free(*va_buf);
-			*va_buf = NULL;
-		}
-		return (NULL);
+			return (free(va_buf), *va_buf = NULL, NULL);
 	}
 	while ((*va_buf)[len] != '\0' && (*va_buf)[len] != '\n')
 		len++;
@@ -75,7 +71,7 @@ char	*get_line(char **va_buf)
 
 char	*get_next_line(int fd)
 {
-	static char	*va_buf[30000000];
+	static char	*va_buf[OPEN_MAX];
 	char		*res;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
