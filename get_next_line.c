@@ -6,7 +6,7 @@
 /*   By: ksaitou <ksaitou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 11:35:09 by kesaitou          #+#    #+#             */
-/*   Updated: 2025/10/20 07:56:18 by ksaitou          ###   ########.fr       */
+/*   Updated: 2025/10/20 07:58:21 by ksaitou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,6 @@ char	*get_line(char **va_buf)
 	}
 	return (dup_line(va_buf));
 }
-
-
-
 
 char	*get_next_line(int fd)
 {
