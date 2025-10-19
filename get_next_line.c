@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kesaitou <kesaitou@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: ksaitou <ksaitou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 11:35:09 by kesaitou          #+#    #+#             */
-/*   Updated: 2025/10/19 15:47:24 by kesaitou         ###   ########.fr       */
+/*   Updated: 2025/10/20 07:56:18 by ksaitou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ char	*read_file(int fd, char *va_buf)
 	{
 		rc = read(fd, tmp, BUFFER_SIZE);
 		if (rc == -1)
-			return (free(tmp), free(va_buf), NULL);
+			return (free(tmp), NULL);
 		if (rc == 0)
 			break ;
 		tmp[rc] = '\0';
 		new_buf = ft_strjoin(va_buf, tmp);
 		if (!new_buf)
-			return (free(tmp), free(va_buf), NULL);
+			return (free(tmp), NULL);
 		free(va_buf);
 		va_buf = new_buf;
 	}
@@ -40,23 +40,14 @@ char	*read_file(int fd, char *va_buf)
 	return (va_buf);
 }
 
-char	*get_line(char **va_buf)
+char *dup_line(char **va_buf)
 {
 	char	*line;
 	char	*rest;
 	char	*old;
 	size_t	len;
-
+	
 	len = 0;
-	if (*va_buf == NULL || **va_buf == '\0')
-	{
-		if (*va_buf)
-		{
-			free(*va_buf);
-			*va_buf = NULL;
-		}
-		return (NULL);
-	}
 	while ((*va_buf)[len] != '\0' && (*va_buf)[len] != '\n')
 		len++;
 	if ((*va_buf)[len] == '\n')
@@ -75,6 +66,23 @@ char	*get_line(char **va_buf)
 	return (line);
 }
 
+char	*get_line(char **va_buf)
+{
+	if (*va_buf == NULL || **va_buf == '\0')
+	{
+		if (*va_buf)
+		{
+			free(*va_buf);
+			*va_buf = NULL;
+		}
+		return (NULL);
+	}
+	return (dup_line(va_buf));
+}
+
+
+
+
 char	*get_next_line(int fd)
 {
 	static char	*va_buf;
@@ -85,6 +93,7 @@ char	*get_next_line(int fd)
 	res = read_file(fd, va_buf);
 	if (!res)
 	{
+		free(va_buf);
 		va_buf = NULL;
 		return (NULL);
 	}
