@@ -6,7 +6,7 @@
 /*   By: kesaitou <kesaitou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 11:35:14 by kesaitou          #+#    #+#             */
-/*   Updated: 2025/10/19 11:35:17 by kesaitou         ###   ########.fr       */
+/*   Updated: 2025/10/20 11:10:10 by kesaitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ char	*ft_strndup(char *s, size_t n)
 	size_t	len;
 
 	len = 0;
+	if (!s)
+		return (NULL);
 	while (len < n && s[len])
 		len++;
 	if (len > SIZE_MAX - 1)

@@ -6,7 +6,7 @@
 /*   By: kesaitou <kesaitou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 11:35:18 by kesaitou          #+#    #+#             */
-/*   Updated: 2025/10/19 19:06:12 by kesaitou         ###   ########.fr       */
+/*   Updated: 2025/10/20 10:11:37 by kesaitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char *va_buf, char *tmp);
 char	*ft_strndup(char *s, size_t n);
-char	*get_line(char **va_buf);
+char	*my_get_line(char **va_buf);
 char	*get_next_line(int fd);
 char	*read_file(int fd, char *va_buf);
+char	*dup_line(char **va_buf);
 
 #endif

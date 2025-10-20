@@ -6,7 +6,7 @@
 /*   By: kesaitou <kesaitou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 11:35:33 by kesaitou          #+#    #+#             */
-/*   Updated: 2025/10/19 11:49:07 by kesaitou         ###   ########.fr       */
+/*   Updated: 2025/10/20 10:53:26 by kesaitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 100000
+#  define BUFFER_SIZE 1000
 # endif
 
 char	*ft_strchr(char *s, int c);
@@ -28,7 +28,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char *va_buf, char *tmp);
 char	*ft_strndup(char *s, size_t n);
-char	*get_line(char **va_buf);
+char	*my_get_line(char **va_buf);
 char	*get_next_line(int fd);
 char	*read_file(int fd, char *va_buf);
 

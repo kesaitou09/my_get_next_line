@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksaitou <ksaitou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kesaitou <kesaitou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 11:35:09 by kesaitou          #+#    #+#             */
-/*   Updated: 2025/10/20 07:58:21 by ksaitou          ###   ########.fr       */
+/*   Updated: 2025/10/20 10:11:45 by kesaitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ char	*read_file(int fd, char *va_buf)
 	return (va_buf);
 }
 
-char *dup_line(char **va_buf)
+char	*dup_line(char **va_buf)
 {
 	char	*line;
 	char	*rest;
 	char	*old;
 	size_t	len;
-	
+
 	len = 0;
 	while ((*va_buf)[len] != '\0' && (*va_buf)[len] != '\n')
 		len++;
@@ -66,7 +66,7 @@ char *dup_line(char **va_buf)
 	return (line);
 }
 
-char	*get_line(char **va_buf)
+char	*my_get_line(char **va_buf)
 {
 	if (*va_buf == NULL || **va_buf == '\0')
 	{
@@ -95,7 +95,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	va_buf = res;
-	return (get_line(&va_buf));
+	return (my_get_line(&va_buf));
 }
 
 // int main(void)
